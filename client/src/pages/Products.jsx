@@ -33,7 +33,8 @@ export default function Products() {
         setError("");
 
         // fetch products from the backend server
-        const res = await fetch("http://localhost:5001/api/products");
+        const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
+        const res = await fetch(`${API_BASE}/api/products`);
 
         // if the response is not ok , throw an error to be caught in the catch block
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -189,7 +190,7 @@ export default function Products() {
           </header>
 
           <div className="products-grid" aria-live="polite">
-          {/* if loading is true , show paragraph ; else , show nothing */}
+            {/* if loading is true , show paragraph ; else , show nothing */}
             {loading && <p className="products-empty">Loading mixes…</p>}
 
             {/* if an error occurred during the fetch or json parsing , show the error message */}

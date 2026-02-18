@@ -89,9 +89,13 @@ export default function Contact() {
       setStatus({ type: "idle", msg: "" });
 
       // send form data to the backend server using fetch API ; the endpoint is /api/messages and we use POST method to create a new message ; the request body is a JSON stringified version of the form values
-      const res = await fetch("/api/messages", {
+      const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
+
+      await fetch(`${API_BASE}/api/messages`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(values),
       });
 
