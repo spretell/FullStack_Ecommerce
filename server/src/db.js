@@ -16,6 +16,10 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
   // name of the specific database to use
   database: process.env.DB_NAME,
+  port: Number(process.env.DB_PORT || 3306),
+  // railway mysql usually requires ssl
+  ssl: { rejectUnauthorized: false },
+
   // if all connections are in use , wait for one to be released instead of throwing an error
   waitForConnections: true,
   // maximum number of connections in the pool
