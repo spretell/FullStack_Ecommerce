@@ -9,6 +9,7 @@ This upgraded version transforms the original static site into a dynamic full-st
 ## My Links
 
 \*:･ **Live Site (Render):**
+https://fullstack-ecommerce-lnci.onrender.com
 
 \*:･ **Frontend (Vite Dev Server):**  
 http://localhost:5173/
